@@ -1,0 +1,208 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{makecell}
+
+
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\usepackage{wasysym}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+
+\DeclareMathOperator{\xRe}{Re}
+\DeclareMathOperator{\xIm}{Im}
+\DeclareMathOperator{\xArg}{Arg}
+
+
+\begin{document}
+	\newbox\mgawtheader%
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 1а (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 1}%
+	%
+	\hbox{}
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 1а. Предикаты и логические операции}\vskip-.4cm
+	\indent\textit{Логические формулы}~--- это формулы, с аргументами или без, которые при подстановке всех аргументов (если они имеются), превращаются в булевское значение~--- \textbf{истину} (1), или \textbf{ложь} (0). Логические формулы конструируются с помощью логических операций, знака тождественной истины и тождественной лжи, предикатов, кванторов и скобок (см. таблицу).
+
+\textit{Предикат}~--- это суждение о субъекте или субъектах, который может быть задан логической формулой или иным образом. Предикат задаёт логическую функцию с аргументом (аргументами) и обращется в истину или ложь при задании аргументов. \textit{Примеры предикатов}: $\mathrm{blue}(x)=\text{$x$ -- синий предмет}$, $\mathrm{odd}(x)=\text{$x$ -- нечётное число}$, $\mathrm{nightmare}(x) = \mathrm{blue}(x)\lor\mathrm{odd}(x)$.
+
+В таблице приведены способы конструирования логических формул. $A$ и $B$~--- обозначают произвольные логические формулы, $x$~--- произвольную переменную, $\varphi$~--- предикат.%
+
+\noindent\begin{tabularx}{\textwidth}{|X|c|l|X|} \hline
+\textbf{Конструкция} & \textbf{Пишется} & \textbf{Читается} & \textbf{Значит} \\\hline
+операция $\land$ (логическое <<и>>, произведение) & $A \land B$ & $A$ и $B$ & истина, если и $A$ и $B$ истинны \\ \hline
+операция $\lor$ (логическое <<или>>) & $A \lor B$ & $A$ или $B$ & истина, если либо $A$, либо $B$ истинно, либо и $A$ и $B$ одновременно \\ \hline
+операция $\to$ (импликация) & $A \to B$ & \makecell[l]{из $A$ следует $B$\\если $A$, то $B$} & истина, если либо $A$ истинно и $B$ истинно, либо если $A$ ложно \\ \hline
+операция $\leftrightarrow$, $=$ (эквивалентность) & \makecell[c]{$A \leftrightarrow B$\\$A=B$} & $A$ эквивалентно $B$ & истина, если значения $A$ и $B$ совпадают \\ \hline
+операция $\lnot$ (отрицание) & $\lnot A$ & \makecell[l]{не $A$ \\ $A$ не верно} & истина, если либо $A$ истинно и $B$ истинно, либо если $A$ ложно \\ \hline
+квантор всеобщности $\forall$ & $\forall x\;\varphi(x)$ & \makecell[l]{для всех $x$ истинно $\varphi(x)$ \\ для каждого $x$ истинно $\varphi(x)$ \\ любой $x$ удовлетворяет $\varphi(x)$} & истина, если предикат истинен для любого аргумента \\ \hline
+квантор существования $\exists$ & $\exists x\;\varphi(x)$ & \makecell[l]{существует $x$, такой что истинно $\varphi(x)$ \\ найдётся $x$, для которого истинно $\varphi(x)$ \\ хотя бы один $x$ удовлетворяет $\varphi(x)$} & истина, если предикат истинен хотя бы для одного значения аргумента\\ \hline
+\end{tabularx}%
+
+Необходимо знать следующие правила преобразования логических выражений:\par\kern-1em
+\begin{itemize}
+  \setlength\itemsep{-.4em}
+\item\textit{Законы де Моргана}: $\lnot(A\land B) = (\lnot A)\lor(\lnot B)$, $\lnot(A\lor B) = (\lnot A)\land(\lnot B)$. 
+\item\textit{Правило дистрибутивности логических операций}: $(A\land B)\lor C=(A\lor B)\land(B\lor C)$, $(A\lor B)\land C=(A\land B)\lor(B\land C)$. 
+\item\textit{Правило двойного отрицания}: $\lnot\lnot A = A$.
+\item\textit{Правило отрицания кванторов}: $\lnot(\forall x\;\varphi(x)) = \exists x\; \lnot\varphi(x)$, $\lnot(\exists x\;\varphi(x)) = \forall x\; \lnot\varphi(x)$.
+\end{itemize}
+
+В задачах будет использоваться следующий набор \textbf P предикатов~---
+$\mathrm{blue}(x)$: $x$ синий,
+$\mathrm{grass}(x)$: $x$ ест траву,
+$\mathrm{red}(x)$: $x$ красный,
+$\mathrm{war}(x, y)$: $x$ враждует с $y$.
+
+		\begin{multicols}{3}
+			[1. Запишите словами и объясните смысл формул, использующих  предикаты набора \textbf P:]
+			\begin{enumerate}[label=(\arabic*)\,]
+				\item $\lnot\mathrm{grass}(x)$;
+				\item $\mathrm{blue}(x)\lor\mathrm{red}(x)$;
+				\item $\forall x\;\lnot\mathrm{war}(x,x)$;
+				\item $\forall x\forall y\;\lnot\mathrm{war}(x,y)$;
+				\item $\lnot\exists x\; \mathrm{red}(x)\land\mathrm{grass}(x)$;
+				\item $\mathrm{red}(x)\to\lnot\mathrm{grass}(x)$;
+				\item $\exists x\exists y\; x\ne y\land\lnot\mathrm{war}(x,y)$;
+				\item $\forall x\;\mathrm{red}(x)\lor\lnot\mathrm{red}(x)$;
+				\item $\forall x\;\exists y\;\mathrm{war}(x,y)$.
+			\end{enumerate}
+		\end{multicols}
+
+		\begin{multicols}{3}
+			[2. Запишите формулами следующие высказывания, используя предикаты набора \textbf P:]
+			\begin{enumerate}[label=(\arabic*)\,]
+				\item $x$ и красный и синий одновременно;
+				\item не бывает синих, которые едят траву;
+				\item любой враг $x$ враг $y$;
+				\item враг врага $x$ не враг $x$;
+				\item кто-то с кем-то враждует;
+				\item $x$ не враждует с теми, кто есть траву;
+				\item есть враждующий со всеми;
+				\item у $x$ и $y$ есть общий враг;
+			\end{enumerate}
+		\end{multicols}
+
+		3. Для каждой формулы задач 1 и 2 сформулируйте отрицание, запишите его в виде формулы и преобразуйте, используя правила преобразования логических выражений.
+
+		4. Составьте таблицы истинности для всех упомянутых логический операций. На основании таблиц докажите законы де Моргана и правило дистрибутивности.
+
+		5. Выразите\par\kern-.3cm
+		\begin{multicols}{3}
+			\begin{enumerate}[label=(\arabic*)\,]
+				\item $\land$ через отрицание и $\lor$;
+				\item импликацию через $\lnot$ и $\lor$;
+				\item эквивалентность через $\lnot$, $\lor$ и $\land$;
+				\item операцию суммы $\oplus$ ($0\oplus0=0; 0\oplus1=1\oplus0=1; 1\oplus1=0$) через эквивалентность и отрицание;
+				\item все логические операции через операцию суммы и произведения ($xy = x\land y$);
+				\item все логические операции через операцию штрих Шеффера ($x|y=\lnot(x\land y)$);
+			\end{enumerate}
+		\end{multicols}
+	\pagebreak
+
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 1б (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 2}%
+	%
+	\hbox{}
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 1б. Множества}\par\noindent
+	Понятие множества и операции принадлежности $\in$ определяются аксиоматически теорией ZF (Цермело-Фленкеля). Объект $x$ называется элементом множества $A$, если истинна формула $x\in A$; также говорят, что <<$x$ принадлежит множеству $A$>>, <<$A$ содержит $x$>> или просто <<$x$ из $A$>>, <<$x$ (лежит) в $A$>>. Справа от знака $\in$ должно стоять множество, слева~--- что угодно. Запись $x\in A$ также эквивалентна $A\ni x$. Множества \textit{равны} (запись $A=B$) тогда и только тогда, когда они содержат одни и те же элементы. Говорят, что множество $B$ \textit{включается} в множество $A$ (запись $B\subset A$), если все элементы $B$ являются также элементами $A$; в таком случае $B$ также называется \textit{подмножеством} $A$. Иными словами
+$$A=B \leftrightarrow (\forall x\;x\in A\leftrightarrow x\in B);\quad B\subset A \leftrightarrow (\forall x\;x\in B\to x\in A).$$
+С помощью множеств вводится ограниченная форма кванторов. Если $x$~--- переменная, $A$~--- множество, $\varphi$~--- предикат, то запись $\exists x\in A\;\varphi(x)$ читается как <<в $A$ существует $x$, для которого $\varphi(x)$>> и эквивалентна формуле $\exists x\;x\in A\land\varphi(x)$; запись $\forall x\in A\;\varphi(x)$ читается как <<для всех $x$ из $A$, выполнено $\varphi(x)$>> и эквивалентна формуле $\forall x\;x\in A\to\varphi(x)$. Для ограниченных кванторов верно правило отрицания кванторов.
+
+Требуется знать стандартные обозначения для следующих множеств: $\varnothing$ (пустое множество, $\forall x\;x\not\in\varnothing$); $\mathbb N$ (множество натуральных чисел: 1, 2,\ldots); $\mathbb Z$ (множество целых чисел); $\mathbb Q$ (множество рациональных чисел); $\mathbb R$ (множество действительных чисел).
+
+\kern-.5em\subparagraph*{Способы задания множеств.}
+\begin{enumerate}
+\item функцией принадлежности, \textit{например}: <<множество коров>>, <<множество чётных чисел>>, <<множество подмножеств множества целых чисел>>;
+\item явным перечислением элементов. Элементы перечисляются в фигурных скобках, через запятую \textit{например}: $\{10,20,30\}$, $\{\smiley, \sun, \{1,2,3\}, \bell\}$;
+\item с помощью \textit{аксиомы выделения}. Если $A$~--- множество, $x$~--- переменная, а $\varphi$~--- предикат, то запись $\{x\in A|\varphi(x)\}$ читается как <<множество таких $x$ из $A$, для которых выполено $\varphi(x)$>>. \textit{Например}: $\{x\in\mathbb Z|x>0\}$, $\{x\in\mathbb Z|\exists y\in\mathbb Z\;x=2y\}$.
+\end{enumerate}
+
+\begin{multicols}{4}
+	[1. Какие из следующих утверждений имеют смысл и верны:]
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $15\in\{15\}$;
+		\item $8\in8$;
+		\item $\sun\in\{\smiley, \{\sun\}, \{1,3\}, \bell\}$;
+		\item $\sun\subset\{\smiley, \{\sun\}, \{1\}, \bell\}$;
+		\item $\{\sun\}\subset\{\smiley, \{\sun\}, \{1\}, \bell\}$;
+		\item $\{\sun\}\in\{\smiley, \{\sun\}, \{1\}, \bell\}$;
+		\item $\varnothing\subset\{\smiley, \{\sun\}, \{1\}, \bell\}$;
+		\item $\varnothing\in\varnothing$;
+		\item $\varnothing\subset\varnothing$;
+		\item $\{\bell,\sun\}=\{\bell,\sun,\bell\}$;
+		\item $\{\bell,\sun,\bell\}\subset\{\bell,\sun\}$;
+		\item $\{1,2\}\subset\varnothing$;
+	\end{enumerate}
+\end{multicols}
+
+2. Выпишите элементы каждого из этих множеств и расположите их в порядке неубывания количества элементов:\par\kern-.7em
+\begin{multicols}{4}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $\{\varnothing\}$;
+		\item $\varnothing$;
+		\item $\{\{\mathbb R, \smiley\}\}$;
+		\item $\{\mathbb Z\}$;
+		\item $\{\{\mathbb R\}\}$;
+		\item $\{1,\{2,3,4,5,6,7\},8\}$;
+		\item $\mathbb Z$;
+		\item $\{x\in\mathbb N|x<5\}$;
+	\end{enumerate}
+\end{multicols}
+
+3. Расположите следующие множества в ряд так, что каждое следующее включает предыдущее: $\{\varnothing\}$; $\varnothing$; $\{\varnothing, \sun\}$.
+
+\begin{multicols}{4}
+[4. Выпишите все подмножества следующих множеств, определите их количество:]
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $\{1,2\}$, 
+		\item $\varnothing$, 
+		\item $\{\bell,\sun,\smiley\}$, 
+		\item $\{\bell,\sun,\smiley, \varnothing\}$.
+		\item $\{1,2,3\}$, 
+		\item $\{1,\{2,3\}\}$,
+		\item $\{\varnothing\}$, 
+	\end{enumerate}
+\end{multicols}
+
+В задачах будет использоваться следующий набор \textbf S множеств~---
+$\mathrm{Cow}$: множество коров,
+$\mathrm{Country}$: множество стран,
+$\mathrm{Obj}$: множество Васиных предметов,
+$\mathrm{Pen}$: множество авторучек.
+
+\begin{multicols}{3}
+	[5. Используя множества \textbf S и предикаты \textbf P из задания 1а запишите формулами соедующие утверждения:]
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item все коровы едят траву;
+		\item у Васи есть синяя ручка;
+		\item не все Васины предметы синие;
+		\item у Васи только синие и красные ручки;
+		\item у Васи нет коровы;
+		\item никакое целое число не является четным и нечётным одновременно
+		\item все синие предметы принадлежат Васе;
+		\item какие-то две страны враждуют;
+		\item у Васи по карйней мере две авторучки;
+		\item существует как минимум три различные коровы;
+	\end{enumerate}
+\end{multicols}
+6. Используя правило отрицания кванторов и законы де Моргана запишите отрицание к каждому пунткту предыдущей задачи вначале формулой, а затем словами.
+
+\begin{multicols}{3}
+	[7. Придумайте предикат $\varphi(x,y)$, для которого истинна формула]
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $\forall x\in\mathbb Z\; \forall y\in\mathbb Z\; \varphi(x,y)\to\varphi(y,x)$;
+		\item $\forall x\in\mathbb Z\; \forall y\in\mathbb Z\; \varphi(x,y)\to\lnot\varphi(y,x)$;
+		\item $\forall x\in\mathbb Z\; \forall y\in\mathbb Z\; \forall z\in\mathbb Z\; \varphi(x,y)\land\varphi(y,z)\to\varphi(x,z)$;
+	\end{enumerate}
+\end{multicols}
+
+
+\end{document}
