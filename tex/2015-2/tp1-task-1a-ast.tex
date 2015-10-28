@@ -1,0 +1,50 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{makecell}
+
+
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\usepackage{wasysym}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+
+\DeclareMathOperator{\xRe}{Re}
+\DeclareMathOperator{\xIm}{Im}
+\DeclareMathOperator{\xArg}{Arg}
+
+
+\begin{document}
+	\newbox\mgawtheader%
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 1а* (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 1}%
+	%
+	\hbox{}
+
+\def\inst{
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 1а*. Переменные в формулах и аргументы}\vskip-.4cm
+	\indent В логическую формулу каждая переменная может входить свободным и связанным образом. Переменная входит \textbf{свободным образом}, если она не стоит непосредственно после квантора $\forall$ или $\exists$ (не относится к квантору), либо находится вне формулы квантора, к которому относится. Остальные вхождения (непосредственно после квантора и внутри формулы квантора) называются \textbf{связанными} вхождениями. Переменные, входящие в формулу свободным образом, называются её \textbf{аргументами}. Логическая формула обретает значение (истину или ложь) только тогда, когда для всех аргументов заданы значения.
+
+\textbf{Задача 1*} Обведите связанные вхождения переменных в формулу, подчеркните свободные вхождения переменных. Выпишите аргументы каждой из этих формул. \textit{Пример:}~$\exists\, \boxed{t}\; \varphi(\boxed{t},\underline{y}) \lor A(\underline{z})$, аргументы: $y$, $z$.\par\kern-.2cm
+		\begin{multicols}{3}
+			\begin{enumerate}[label=(\arabic*)\,]
+				\item $\exists x\; \lnot\varphi(x,y)$;
+				\item $\exists \zeta\forall y\; \psi(x,\zeta)\to\lnot\varphi(y,\zeta)$;
+				\item $(\forall z\;\varphi(z,t))\land(\exists z\;\psi(z,\tau))$;
+			\end{enumerate}
+		\end{multicols}\par\kern-.2cm
+Ту же операцию проделайте с формулами задачи 1.1.
+
+\textbf{Задача 2*} Пусть $A(x,y)$~-- предикат <<$x=3y$>>, $O(x)$~-- <<$x$~-- чётное число>>. Проделать с формулой операции задачи 1*, определить, при каких аргументах формула истинна: а) $\forall s\; A(s,t) \to O(s)$; б) $\exists u\; A(y,u)$
+
+\vskip\ht\mgawtheader\vskip\parsep\vskip.3cm\vskip.6cm
+}
+\inst\inst\inst\inst
+\end{document}

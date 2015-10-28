@@ -1,0 +1,59 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{makecell}
+
+
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\usepackage{wasysym}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+
+\DeclareMathOperator{\xRe}{Re}
+\DeclareMathOperator{\xIm}{Im}
+\DeclareMathOperator{\xArg}{Arg}
+
+\newcount\problemnum
+\problemnum=1
+\def\problem{\textbf{Задача \the\problemnum}\advance\problemnum by 1}
+
+\begin{document}
+\def\work{
+	\newbox\mgawtheader%
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 1в--продолжение (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 1}%
+	%
+	\hbox{}
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 1в. Отображения (продолжение)}\par\noindent
+\problemnum=9
+\problem. Докажите (находя взаимно однозначное отображение) равномощность следующих множеств: \par\kern-1.0em
+\begin{multicols}{2}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $\{1,2,3\}$ и $\{\sun,\smiley,\bell\}$;
+		\item $\mathbb Z$ и $\mathbb Z$;
+		\item $\mathbb Z$ и $\{x\in\mathbb Z|x>1\}$;
+		\item $\mathbb Z$ и $2\mathbb Z=\{2x|x\in\mathbb Z\}$;
+		\item $[0,1]$ и $[0,2]$ ($[0,1]$~--- это отрезок, то есть множество $\{x\in \mathbb R|0\leqslant x\leqslant 1\}$);
+		\item $[0,1]$ и $[-1,1]$;
+		\item $[0,1]$ и $(0,1]$ ($(0,1]$~--- это полуинтервал, то есть множество $\{x\in \mathbb R|0< x\leqslant 1\}$);
+		\item $(0,1]$ и $[1,\infty)$;
+		\item $[0,1]$ и $\mathbb R$;
+		\item любые два отрезка на плоскости;
+		\item отрезок и окружность;
+		\item множество всех подмножеств $\mathbb N$ и множество всех бесконечных последовательностей 0 и 1;
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+\problem\ (Теорема Кантора). Множество всех подмножеств множества $A$ обозначается через $2^A$. Рассматривая для отображения $f:A\to 2^A$ множество $\{x\in A|x\not\in f(x)\}$ докажите, что $A$ не может быть равномощно $2^A$.
+\par\kern4em
+}
+\work\work\work
+
+\end{document}

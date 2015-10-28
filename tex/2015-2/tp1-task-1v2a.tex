@@ -1,0 +1,319 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{makecell}
+
+
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\usepackage{wasysym}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{indentfirst}
+
+\DeclareMathOperator{\xRe}{Re}
+\DeclareMathOperator{\xIm}{Im}
+\DeclareMathOperator{\xArg}{Arg}
+
+\newcount\problemnum
+\problemnum=1
+\def\problem{\textbf{Задача \the\problemnum}\advance\problemnum by 1}
+
+\begin{document}
+{
+	\newbox\mgawtheader%
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 1в (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 1}%
+	%
+	\hbox{}
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 1в. Отображения}\par\noindent
+
+Если каждому элементу множества $A$ поставлен в соответствие ровно один элемент множества $B$, то говорят, что задана \textbf{функция} (\textbf{отображение}) на множестве $A$ со значениями в множестве $B$ (также: функция из $A$ в $B$). Обозначение $f: A\to B$ (читается: $f$ функция из $A$ в $B$). Элемент, сопоставляемый элементу $x\in A$, называется \textbf{образом} $x$ при отображении $f$  или \textbf{значением} $f$ в точке $x$ и обозначается $f(x)$; также пишут $x\mapsto y$, если $y=f(x)$. Если $x\mapsto y$, то $x$ называется прообразом $y$. Множество тех $y\in B$, которые представляются в виде $f(x)$ для некоторого $x\in A$ называется \textbf{образом} $f$ и обозначается $\mathrm{Im} f = \{f(x)|x\in A\}$.
+
+Отображение $f:A\to B$ называется \textbf{инъективным}, если у каждого $y\in B$ не более одного прообраза. Отображение $f:A\to B$ называется \textbf{сюрьективным}, если у каждого $y\in B$ не менее одного прообраза (то есть $\mathrm{Im} f=B$). Отображение $f:A\to B$ называется \textbf{биективным} или \textbf{взаимно однозначным}, если у каждого $y\in B$ ровно один прообраз. 
+
+Отображения $f,g:A\to B$ являются равными, если их значения на каждом элементе $A$ совпадают, иными словами $f=g$ тогда и только тогда, когда $\forall x\in A\;f(x)=g(x)$.
+
+Отображение может быть задано\par\kern-1.0em
+\begin{itemize}
+\setlength\itemsep{-.4em}
+\item явно, перечислением образов элементов. Пример: $f:\{1,2\}\to\{100,200\}, 1\mapsto 200, 2\mapsto 100$;
+\item формулой. Пример: $f:\mathbb R\to\mathbb R, f(x)=x^2$;
+\end{itemize}
+\par\kern-1em
+
+\problem. Выпишите (задавая явно) все отображения между следующими конечными множествами $A$ и $B$ и определите их количество. Определите среди них инъективные, сюрьективные и биективные, $\mathrm{Im}$, а также их количество. \par\kern-1em
+
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $A=\{1,2\}$, $B=\{\sun,\bell\}$;
+		\item $A=\{\sun,\bell,\smiley, \{1\}, \{1,2\}\}$, $B=\{\bell\}$;
+		\item $A=\{\sun,\bell\}$, $B=A$;
+		\item $A=\{\sun\}$,\\ $B=\{\bell,\sun,\smiley, \{1,4,5,6\}, \{1,2\}\}$;
+		\item $A=\varnothing$, $B=\{\sun,\bell\}$;
+		\item $A=\{\sun,\bell\}$, $B=\varnothing$;
+		\item $A=\{1,2,3\}$, $B=\{\sun,\bell\}$;
+		\item $A=\{1,2\}$, $B=\{\sun,\bell,100\}$;
+		\item $A=\{1,2,3\}$, $B=A$;
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+\problem. Среди этих отображений найдите инъективные, сюрьективные, биективные, а также вычислите $\mathrm{Im} f$: \par\kern-1em
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $f:\mathbb R\to\mathbb R, f(x)=x$;
+		\item $f:\mathbb Z\to\mathbb Z, f(x)=-x$;
+		\item $f:\mathbb N\to\mathbb Q, f(x)=x$;
+		\item $f:\mathbb R\to\mathbb R, f(x)=x^2$;
+		\item $f:\mathbb R\to\mathbb \{x\in\mathbb R|x\geqslant 0\}, f(x)=x^2$;
+		\item $f:\mathbb N\to\mathbb N, f(x)=2x$;
+		\item $f:\mathbb R\to\mathbb R, f(x)=2x$;
+		\item $f:\mathbb Q\to\mathbb N$, $x$ переходит в знаменатель записи $x$ в виде несократимой дроби;
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+Если $f:A\to B$, а $g: B\to C$ для некоторых множеств $A$, $B$ и $C$, то определена операция \textbf{композиции} (\textbf{суперпозиции}) $g\circ f: A\to C$, которая задана следующим образом: $g\circ f(x) = g(f(x))$.
+
+\problem. Пусть $\mathrm{Country}$~--- множество стран, $\mathrm{City}$~--- множество городов. $f:\mathrm{Country}\to\mathrm{City}$ ставит в соответствие каждой стране столицу этой страны. $g:\mathrm{City}\to\mathrm{Country}$ ставит в соответствие каждому городу ту страну, в которой он находится. Определить, какие выражения корректны и вычислить их значения: \par\kern-1.0em
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $f(\text{Дрезден})$
+		\item $g(\text{Новосибирск})$
+		\item $f(\text{Россия})$
+		\item $g(\text{Франция})$
+		\item $f\circ g(\text{Колумбия})$
+		\item $f\circ g(\text{Мумбай})$
+		\item $g\circ f(\text{Солт Лейк Сити})$
+		\item $g\circ f(\text{Венгрия})$
+		\item $g\circ f\circ g(\text{Астана})$
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+
+\problem. Вычислите суперпозицию функций $f$ и $g$: \par\kern-1.0em
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $f(x)=4x^2, g(x) =\sin x$;
+		\item $f(x)=\frac1x, g(x) = \sin x+\cos x$;
+		\item $f(x)=x\cos x, g(x) = \frac 1x$;
+		\item $f(x)=x, g(x) = 15x^4$;
+		\item $f(x)=\sin(\ln x), g(x) = x$;
+		\item $f(x)=\frac{1}{x+\frac1x}, g(x) = \ln x$;
+		\item $f(x) = x^x, g(x) = 3$;
+		\item $f(x) = \sqrt{x}, g(x) = 16x+4$;
+		\item $f(x) = e^x, g(x) = 2\ln 3$;
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+
+\problem. Представьте следующие функции в виде суперпозиции более простых функций $f$ и $g$: \par\kern-1.0em
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $h(x) = \sin(\cos x)$
+		\item $h(x) = e^{2x+4}$
+		\item $h(x) = \sin(-5x+2)$
+		\item $h(x) = 3\sin(x^2)$
+		\item $h(x) = \sin^2(x)$
+		\item $h(x) = \ln \cfrac{1+x}{1-x}$
+		\item $h(x) = \sqrt{18x^2+1}$
+		\item $h(x) = \cfrac1{2x\sin\ln x}$
+		\item $h(x) = x^x$
+	\end{enumerate}
+\end{multicols}
+\par\kern-.5em
+
+\problem. Докажите, что композиция инъективных инъективна, композиция сюрьективных сюрьективна, композиция биективных биетивна. Если $g\circ f$ инъективно, верно ли, что а) $f$ инъективно? б) $g$ инъективно? Если $g\circ f$ сюрьективно, верно ли, что а) $f$ сюрьективно? б) $g$ сюрьективно?
+\par\kern.5em
+Если $A$ множество, то отображение $id_A: A\to A$, задаваемое формулой $id_A(x)=x$ называется тождественным отображением множества $A$. Если $f: A\to B$, то отображение $g: B\to A$ называется обратным $f$, если $g\circ f=id_A$ и $f\circ g=id_B$.
+
+\problem. а) Докажите, что обратные отображения имеются только у взаимно однозначных функций. б) Для каждого из биективных отображений задачи 1 найдите обратное. в) Выразите обратное композиции $f\circ g$ через обратные к $f$ и $g$.
+\par\kern.5em
+Если существует взаимно однозначное отображение между множествами $A$ и $B$, то такие множества называются \textbf{равномощными}, запись: $|A|=|B|$.
+
+\problem. Докажите, что если $|A|=|B|$ и $|B|=|C|$, то $|A|=|C|$.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+{
+\problemnum=1
+	\newbox\mgawtheader%
+	\setbox\mgawtheader=\hbox{\small МГАВТ 2015 осень. Задание 2а (в рамках допуска к экзамену) для группы ТП-1, \bf ВАР 1}%
+	%
+	\hbox{}
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.3cm\copy\mgawtheader%
+	\vskip-\ht\mgawtheader\vskip-\parsep\vskip-.6cm\hbox{}%
+	\section*{Задание 2а. Векторы. Метод Гаусса}\par\noindent
+
+\textbf{Векторным (линейным) пространством} называется произвольное множество $V$ с введёнными на нём двумя операциями $+: V\times V\to V$ и $\cdot: \mathbb R\times V\to V$, которые называются сложением и умножением на числа и удовлетворяют ряду аксиом. Элементы векторного пространства называются векторами. Аксиомы, в частности, влекут существование особенного вектора $\vec 0$, удовлетворяющего соотношению $\forall v\in V\; v+\vec0=v$, и называемого \textbf{нулевым вектором}.
+
+\textit{Пример:} $\mathbb R^n$, то есть множество всех записей вида $(x_1,\ldots,x_n)$, в которых в скобках записано через запятую $n$ произвольных действительных чисел. Сложение и умножение в $R^n$ определяются по формулам: $(x_1,\ldots,x_n)+(y_1,\ldots,y_n) = (x_1+y_1,\ldots,x_n+y_n)$, $a\cdot(x_1,\ldots,x_n) = (ax_1,\ldots,ax_n)$, где $x_i, y_i, a$~--- действительные числа.
+
+\textbf{Линейной комбинацией} векторов $v_1$,\ldots,$v_n$ называется вектор, который можно получить из $v_1$,\ldots,$v_n$ применяя операции <<$+$>> и <<$\cdot$>>. Любую линейную комбинацию можно предствавить в виде $\alpha_1\cdot v_1+\cdots+\alpha_n\cdot v_n$, где $\alpha_1$, \ldots $\alpha_n$~--- некоторые действительные числа, называемые \textbf{коэффициентами} линейной комбинации. Векторы $v_1$,\ldots,$v_n$ называют \textbf{линейно независимыми}, если любая их линейная комбинация, в которой котя бы один коэффициент отличен от нуля, не равна нулевому вектору.
+
+\problem. Выразите в виде линейной комбинации (там, где это возможно): \par\kern-1.0em
+
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $(10,15)$ через $(1,0)$ и $(0,1)$;
+		\item $(4,-7)$ через $(1,1)$ и $(0,1)$;
+		\item $(8,-8,8)$ через $(3,-3,3)$;
+		\item $(5,10,0)$ через $(3,6,-4)$ и $(0,0,\pi)$;
+		\item $(0,\frac32,0)$ через $(2,1,3)$, $(-1,0,0)$ и $(0,0,3)$;
+		\item $(4,-\frac78,6)$ через $(1,0,0)$ и $(0,1,0)$;
+		\item $(2,2,3,4)$ через $(1,0,0,0)$, $(0,1,0,0)$, $(0,0,1,0)$ и $(0,0,0,1)$;
+		\item $\vec0$ через $(2,3)$ и $(5,3.5)$;
+		\item $\vec0$ через $(1,0)$, $(0,2)$ и $(2,1)$ ненулевым образом;
+	\end{enumerate}
+\end{multicols}\par\kern-0.5em
+
+\problem. Найдите линейно зависимые наборы векторов и линейные зависимости для них: \par\kern-1.0em
+
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item $(1,0)$ и $(0,1)$;
+		\item $(1,1)$ и $(0,1)$;
+		\item $(1,2)$ и $(2,1)$;
+		\item $(1,2)$ и $(1,2)$;
+		\item $(1,2)$, $(2,1)$ и $(0,0)$;
+		\item $(5,10)$ и $(-7,-14)$;
+		\item $(1,0,2)$ и $(2,0,4)$;
+		\item $(3,\frac52,\frac52)$, $(2,0,0)$ и $(0,8,8)$;
+		\item $(4,3,6)$, $(2,1,1)$ и $(0,2,8)$;
+	\end{enumerate}
+\end{multicols}\par\kern-0.5em
+
+Набор векторов пространства $V$ называется \textbf{базисом}, если он линейно независим и любой вектор $V$ линейно выражается через вектора этого набора.
+
+\problem. Какие из наборов векторов предыдущей задачи являются базисами в соответствующем пространстве, и почему?
+
+Элементарными преобразованиями строк матрицы называются:\par\kern-1.0em
+\begin{multicols}{3}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item прибавить к одной строке любую другую, умноженную на число;
+		\item домножить одну строку на число;
+		\item поменять строки местами;
+	\end{enumerate}
+\end{multicols}\par\kern-1em
+
+Элементарными преобразованиями любую матрицу можно привести к \textbf{ступенчатому виду}, то есть виду, в котором каждая строка матрицы начинается с большего количества нулей, чем предыдущая. Этот способ называется \textbf{метод Гаусса} и заключается в последовательном обнулении элементов матрицы преобразованиями (1) и (3). В ступенчатой матрице первый ненулевой элемент в каждой строке (если он есть) называется \textbf{лидером} ступенчатой матрицы. \textbf{Обратный ход метода Гаусса} заключается в обнулении всех элементов матрицы, стоящих над лидерами, с использованием элементарного преобразования (1).
+
+%$\begin{pmatrix}
+%    x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+%    x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+%    \hdotsfor{5} \\
+%    x_{m1}       & x_{m2} & x_{m3} & \dots & x_{mn}
+%\end{pmatrix}$
+
+\problem. Привести следующие матрицы к ступенчатому виду, а затем выполнить обратный ход метода Гаусса: \par\kern-1.0em
+
+\begin{multicols}{4}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item 
+$\begin{pmatrix}
+    3 & 6 \\
+    2 & 8
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    0 & 4 & 5 \\
+    2 & 2 & 6
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    2 & 3 \\
+    8 & 9 \\
+   -2 & 7
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    2 & 1 & 1 \\
+    1 & 0 & 2 \\
+    3 & 1 & 2
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    -2 & -1 & 2 \\
+    4 & 1 & -3 \\
+    1 & 1 & -1
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    1 & -1 & -5 \\
+    0 & 3 & 8 \\
+    2 & 1 & 7
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    1 & 1 & 5 & 4 \\
+    3 & 0 & 8 & -1 \\
+    -6 & 9 & 7 & 4
+\end{pmatrix}$
+		\item 
+$\begin{pmatrix}
+    1 & -1 & -5 & 4 \\
+    3 & 0 & 8 & -1 \\
+    -6 & 9 & 7 & 4
+\end{pmatrix}$
+	\end{enumerate}
+\end{multicols}\par\kern-1em
+
+Уравнение вида $a_1x_1+\cdots+a_nx_n=b$, в котором $a_i$, $b$~--- конкретные числа, $x_i$ - переменные называется \textbf{линейным}. Метод Гаусса применяют для решения систем линейных уравнений. Для этого строится матрица, причём каждой переменной, учавствующей в системе, сопоставляют столбец матрицы, каждому уравнению~--- строку матрицы. Также, выделяют специальный столбец для правых частей уравнений. Выписывая все коэффициенты получают \textbf{матрицу системы уравений}. Элементарные преобразования строк матрицы системы приводят к матрицам равносильных систем, т. о. метод решения системы заключается в приведении её матрицы к ступенчатому виду и решении получившейся системы. Система линейных уравнений может не иметь решения, иметь одно решение, либо бесконечно много.
+
+\problem. Выписать матрицы следующих систем уравнений: \par\kern-1.0em
+
+\begin{multicols}{4}
+	\begin{enumerate}[label=(\arabic*)\,]
+		\item 
+$\begin{cases}
+    3x + 2y = 5 \\
+    x  = 1
+\end{cases}$
+		\item 
+$\begin{cases}
+    2x + 3y + z = 5 \\
+    y+z-1  = x
+\end{cases}$
+		\item 
+$\begin{cases}
+    2x + 3y = 7 \\
+    4x + 6y = 8
+\end{cases}$
+		\item 
+$\begin{cases}
+    2x_1 + x_2 + x_3 = 0 \\
+    x_1 + 2x_2 + 2x_3 =0 \\
+    3x_1 + x_2 + 2x_3 = 0
+\end{cases}$
+		\item 
+$\begin{cases}
+    -2x_1 - x_2 + 2x_3 = 0 \\
+    4x_1 + x_2 -3x_3 =0 \\
+    x_1 + x_2 + -x_3 = 0
+\end{cases}$
+		\item 
+$\begin{cases}
+    x -y -5z =0\\
+    3y + 8z=0 \\
+    7z +y +2x=0
+\end{cases}$
+		\item 
+$\begin{cases}
+    x_1 + x_2 + 5x_3 = 4 \\
+    3x_1+ 8x_3 =-1 \\
+    -6x_1 +9x_2 +7x_3 = 4
+\end{cases}$
+		\item 
+$\begin{cases}
+    x  -y  -5z = 4 \\
+    3x + 8z + 1=0 \\
+    -6x + 9y + 7z = 4
+\end{cases}$
+	\end{enumerate}
+\end{multicols}\par\kern-1em
+\problem. Примените к матрицам, получившимся в предыдущей задаче, метод Гаусса и его обратный ход, преобразуйте снова к системам уравнений и решите их.}
+\end{document}
